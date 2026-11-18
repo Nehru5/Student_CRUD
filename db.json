@@ -1,0 +1,29 @@
+{
+  "students": [
+    {
+      "name": "Kiran",
+      "email": "Kiran@gmail.com",
+      "phone": "541245214",
+      "department": "CSE",
+      "course": "Java",
+      "id": "9Fugpj7qRXE"
+    },
+    {
+      "name": "Sanjay",
+      "email": "Sanjay@gmail.com",
+      "phone": "87455856",
+      "department": "ECE",
+      "course": "Python",
+      "id": "3tRphbqmG8A"
+    },
+    {
+      "name": "Sanjay",
+      "email": "Sanjay@gmail.com",
+      "phone": "87455856",
+      "department": "ECE",
+      "course": "Python",
+      "id": "7YwoS-ovlvk"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
