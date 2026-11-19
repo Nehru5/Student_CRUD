@@ -2,12 +2,15 @@ import React,{useState} from 'react'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 const Addstudent = () => {
   const [name,setName] = useState("")
   const [email,setEmail] = useState("")
   const [phone,setPhone] = useState("")
   const [department, setDepartment] = useState("")
   const [course, setCourse] = useState("")
+
+  let navigate = useNavigate()
 
   function addStudent(e){
     e.preventDefault()
@@ -20,6 +23,7 @@ const Addstudent = () => {
       setPhone("")
       setDepartment("")
       setCourse("")
+      navigate("/viewstudent")
     })
     .catch(err=>toast.error("Failed to Add")) 
 

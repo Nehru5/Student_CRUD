@@ -23,6 +23,22 @@
       "department": "ECE",
       "course": "Python",
       "id": "7YwoS-ovlvk"
+    },
+    {
+      "name": "Kishore",
+      "email": "Kishore@gmail.com",
+      "phone": "54125",
+      "department": "ECE",
+      "course": "Python",
+      "id": "3aX_Dkg9N3o"
+    },
+    {
+      "name": "hgvghv",
+      "email": "jhbhjb",
+      "phone": "jhvbhjb",
+      "department": "kjhbjkn",
+      "course": "jhh",
+      "id": "HTMshQ_pbr4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
