@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 const Viewstudent = () => {
   const [students, setStudents] = useState([])
 
@@ -20,6 +21,15 @@ const Viewstudent = () => {
   function handleUpdate(id){
     navigate(`/updatestudent/${id}`)
   }
+
+  function handleDelete(id){
+    axios.delete(`http://localhost:3000/students/${id}`)
+    .then(()=>{
+      toast.success("Deleted....")
+      fethData()
+    })
+    .catch(err=>toast.err("Failed to delete"))
+  }
   return (
     <>
     <Navbar/>
@@ -32,7 +42,7 @@ const Viewstudent = () => {
           <h2>Department: {x.department}</h2>
           <h2>Course: {x.course}</h2>
           <button onClick={()=>handleUpdate(x.id)}>Edit</button>
-          <button>Delete</button>
+          <button onClick={()=>{handleDelete(x.id)}}>Delete</button>
         </div>
       })}
     </>

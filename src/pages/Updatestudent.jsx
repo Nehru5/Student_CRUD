@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react'
 import Navbar from '../components/Navbar'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 const Updatestudent = () => {
     const [name,setName] = useState("")
     const [email,setEmail] = useState("")
@@ -11,6 +13,7 @@ const Updatestudent = () => {
     let {id}  = useParams()
     console.log(id);
 
+    let navigate = useNavigate()
     useEffect(()=>{
       axios.get(`http://localhost:3000/students/${id}`)
     .then(x=>{
@@ -22,12 +25,23 @@ const Updatestudent = () => {
     })
     .catch(err=>console.log(err))
     },[])
+
+    function handleUpdate(e){
+      e.preventDefault()
+      const newData = {name,email,phone,department,course}
+      axios.put(`http://localhost:3000/students/${id}`,newData)
+      .then(()=>{
+          toast.success("Updated...")
+          navigate("/viewstudent")
+      })
+      .catch(err=>toast.error("Failed to Update..."))
+    }
   return (
     <>
     <Navbar/>
     <center><h1>Update Student</h1></center>
     <center>
-        <form>
+        <form onSubmit={handleUpdate}>
           <input 
           type="text" 
           placeholder='Enter Name' 
